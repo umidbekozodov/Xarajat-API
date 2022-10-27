@@ -9,7 +9,8 @@ public class Room
     public ERoomStatus Status { get; set; }
     public int AdminId { get; set; }
     
-    [ForeignKey(nameof(AdminId))]
+    [ForeignKey("AdminId")]
     public User? Admin { get; set; }
     public List<User>? Users { get; set; }
+    public List<Outlay>? Outlays { get; set; }
 }

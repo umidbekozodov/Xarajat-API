@@ -11,13 +11,36 @@ using Xarajat_API.Data;
 namespace Xarajat_API.Data.Migrations
 {
     [DbContext(typeof(XarajatDbContext))]
-    [Migration("20221024120843_UserRoomCreated")]
-    partial class UserRoomCreated
+    [Migration("20221027111327_CreateTable")]
+    partial class CreateTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
+
+            modelBuilder.Entity("Xarajat_API.Entities.Outlay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cost")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Outlays");
+                });
 
             modelBuilder.Entity("Xarajat_API.Entities.Room", b =>
                 {

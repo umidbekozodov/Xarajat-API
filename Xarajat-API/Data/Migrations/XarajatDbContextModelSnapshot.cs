@@ -46,6 +46,9 @@ namespace Xarajat_API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("AdminId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Key")
                         .HasColumnType("TEXT");
 
@@ -83,23 +86,7 @@ namespace Xarajat_API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomId");
-
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Xarajat_API.Entities.User", b =>
-                {
-                    b.HasOne("Xarajat_API.Entities.Room", null)
-                        .WithMany("Users")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Xarajat_API.Entities.Room", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
