@@ -3,6 +3,8 @@ using Xarajat_API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+ProductServices.Start();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
